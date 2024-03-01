@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsonform/2.4.0/jsonform.js"></script>
+  <title>JSON Form</title>
+</head>
+<body>
+    <h1>JSON Form</h1>
+    <div id="form-container"></div>
+   
+    <script>
+      // Your JSON Schema goes here
+      const jsonSchema = {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email"
+          }
+        },
+        "required": ["name", "email"]
+      };
+   
+      // Render JSON Form
+      document.addEventListener('DOMContentLoaded', function() {
+        const formContainer = document.getElementById('form-container');
+        JSONForm.render(jsonSchema, formContainer);
+      });
+    </script>
+  </body>
+</html>
